@@ -1,0 +1,134 @@
+import React from "react";
+
+export default function Team() {
+   const teamMembers = [
+      {
+         id: 1,
+         name: "Md Abdul Jalil",
+         expart: "Google Ads & Shopify Expart",
+         gmail: "https://mail.google.com/mail/u/0/#search/mdjalilahmed867%40gmail.com?compose=new",
+         whatsapp: "https://wa.me/+8801911860608",
+         linkdin: "https://www.linkedin.com/in/mdabduljalil/",
+         facebook: "https://www.facebook.com/freelancerjalilofficial/",
+         img: "https://scontent.fdac22-2.fna.fbcdn.net/v/t39.30808-6/466042676_3389035488069894_6247741202038764046_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ECbgwqO7oW0Q7kNvgH0U5HW&_nc_zt=23&_nc_ht=scontent.fdac22-2.fna&_nc_gid=A3jxMwrcnq5zFnIlMrx5VPH&oh=00_AYCxUNscMQlqEeLx3DqNc9262HkldOug1tPyEA8C1NtLow&oe=6771A5FC",
+      },
+      {
+         id: 2,
+         name: "Indronil Bishwas",
+         expart: "Google Ads & Local SEO (GMB) Expert",
+         gmail: "https://mail.google.com/mail/u/0/#search/indronilbishwas2004%40gmail.com?compose=new",
+         whatsapp: "https://wa.me/+8801759819032",
+         linkdin: "https://www.linkedin.com/in/bishwas-indronil/",
+         facebook: "https://www.facebook.com/indronilbishwas",
+         img: "https://scontent.fdac22-2.fna.fbcdn.net/v/t39.30808-6/269691318_3046756868971185_2800808202478161295_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=AKXctdPeXIMQ7kNvgGYQ97e&_nc_zt=23&_nc_ht=scontent.fdac22-2.fna&_nc_gid=AMbosIVoy8AjHEUG2A97uu4&oh=00_AYBa2KIymzpyI5ezruMGmtnVhRP5ftj3sJFEo1haxslkJA&oe=6771785B",
+      },
+      {
+         id: 3,
+         name: "Md Ziaur Rahman",
+         expart: "Google Ads & YouTube SEO Expert",
+         gmail: "https://mail.google.com/mail/u/0/#search/ziaurrahman0883%40gmail.com?compose=new",
+         whatsapp: "https://wa.me/+8801940891027",
+         linkdin: "",
+         facebook: "",
+         img: "https://scontent.fdac22-2.fna.fbcdn.net/v/t39.30808-6/459504677_1900446077103482_1712405057647433022_n.jpg?stp=c0.169.1536.1536a_dst-jpg_s206x206_tt6&_nc_cat=109&ccb=1-7&_nc_sid=52bb43&_nc_ohc=s_3RnWJnPYIQ7kNvgG0DkmK&_nc_zt=23&_nc_ht=scontent.fdac22-2.fna&_nc_gid=ANXPLf2A6OUyYjzxgldDMh9&oh=00_AYBuHuxUDpcAI93GlxUr8qrqS-KVe6xzDvw35cnlkiAFkA&oe=6771D50C",
+      },
+      {
+         id: 4,
+         name: "Md Bahar Uddin",
+         expart: "Social Media Marketing Expert",
+         gmail: "",
+         whatsapp: "https://wa.me/+8801715539891",
+         linkdin: "",
+         facebook: "https://www.facebook.com/mdbahar09",
+         img: "https://scontent.fdac22-2.fna.fbcdn.net/v/t39.30808-6/461948087_3502940513183358_5214661217280622230_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=2dGp05GvTP4Q7kNvgERgvkI&_nc_zt=23&_nc_ht=scontent.fdac22-2.fna&_nc_gid=AHo6vqrMdvHm_6Z0XCJlu9m&oh=00_AYDlGiUmwA2ISfxlnpGvGFE3H9McARGgPt5AQAdT75TlEw&oe=67716FEF",
+      },
+      {
+         id: 5,
+         name: "Hamima Akther",
+         expart: "Google Ads & Facebook Ads Expert",
+         gmail: "https://mail.google.com/mail/u/0/#search/hamimaakter247%40gmail.com?compose=new",
+         whatsapp: "https://wa.me/+8801403581506",
+         linkdin: "https://www.linkedin.com/in/hamima-akter/",
+         facebook: "https://www.facebook.com/hamimafreelancer",
+         img: "https://media.licdn.com/dms/image/v2/D5603AQGR5GlxIr6SlA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1687446244921?e=2147483647&v=beta&t=RboamPRrJteeNMyYeEc31g-2vhKUJgM1YUQm9rNKTgA",
+      },
+   ];
+   return (
+      <div className="pt-16  p-2  flex flex-col items-center">
+         <h1 className="text-[1.5rem] lg:text-[2rem] text-slate-700 text-shadow-md font-extrabold font-Inter">
+            Team Member's
+         </h1>
+         <div className="w-[25vh] h-[0.6vh] mb-4 animate-pulse  bg-red-600 "></div>
+
+         <div className=" w-full h-auto  p-4 flex flex-wrap justify-center items-center   ">
+            {/* card section  */}
+            {teamMembers.map((member) => (
+               <div
+                  key={member.id}
+                  className=" h-5/6 lg:w-[18%] w-full bg-slate-200 cursor-pointer  m-3 p-2 border-b-4 hover:border border-red-600 rounded-md flex flex-col items-center shadow-lg hover:shadow-none shadow-black duration-300">
+                  <div className="w-[20vh] h-[20vh] flex justify-center items-center  rounded-full overflow-hidden shadow-md shadow-black">
+                     {" "}
+                     <img src={member.img} alt="" className=" h-full w-full " />
+                  </div>
+                  <div className=" w-full m-1  pt-6 flex flex-col items-center justify-center ">
+                     <h1 className=" lg:text-[1.1rem] text-[1.5rem]  font-semibold text-slate-700">
+                        {member.name}
+                     </h1>
+                     <h3 className=" font-roboto font-semibold lg:text-[0.7rem] text-[0.6rem] text-red-800">
+                        {member.expart}
+                     </h3>
+                     {/* Button section */}
+                     <div className=" flex justify-center items-center my-5 space-x-2">
+                        {/* linkdin btn */}
+                        <a href={member.linkdin} target="_blank">
+                           <img
+                              className=" bg-red-600 p-1 shadow-md shadow-black w-7 rounded-full animate-bounce hover:animate-none hover:bg-slate-600 duration-300"
+                              src="https://img.icons8.com/ios-glyphs/30/FFFFFF/linkedin.png"
+                              alt=""
+                           />
+                        </a>
+                        {/* whatsapp btn */}
+                        <a href={member.whatsapp} target="_blank">
+                           <img
+                              className=" bg-red-600 p-1  shadow-md shadow-black  w-7 rounded-full animate-bounce hover:animate-none hover:bg-slate-600 duration-300"
+                              src="https://img.icons8.com/ios-glyphs/30/FFFFFF/whatsapp.png"
+                              alt=""
+                           />
+                        </a>
+                        {/* gmail btn */}
+                        <a href={member.gmail} target="_blank">
+                           <img
+                              className=" bg-red-600 p-1 shadow-md shadow-black  w-7 rounded-full animate-bounce hover:animate-none hover:bg-slate-600 duration-300"
+                              src="https://img.icons8.com/ios-glyphs/30/FFFFFF/gmail.png"
+                              alt=""
+                           />
+                        </a>
+                        {/* facebook btn */}
+                        <a href={member.facebook} target="_blank">
+                           <img
+                              className=" bg-red-600 p-1 shadow-md shadow-black  w-7 rounded-full animate-bounce hover:animate-none hover:bg-slate-600 duration-300"
+                              src="https://img.icons8.com/ios-glyphs/30/FFFFFF/facebook-new.png"
+                              alt=""
+                           />
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            ))}
+         </div>
+      </div>
+   );
+}
+update this page for show the data from firbase 
+the firbase database is:teamMembers
+headers
+
+item_0
+item_0
+description
+"dsfdsf sf sdf sjis j isjsfj sfsjfksfh skdjhf sdjffkjs hfs jfkh s kfjs f"
+(string)
+
+
+name
+"Header Description"

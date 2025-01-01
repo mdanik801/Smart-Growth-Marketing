@@ -13,8 +13,7 @@ import ServiceDetails from "./components/shared/ServiceDetails";
 function App() {
    return (
       <>
-         <div className=" ">
-            {" "}
+         <div className="layout">
             <Navbar />
          </div>
          <Routes>

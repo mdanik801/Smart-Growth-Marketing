@@ -39,7 +39,7 @@ export default function ServiceDetails() {
          return;
       }
 
-      const phoneNumber = "+8801772554705"; // Replace with the desired WhatsApp phone number (including country code)
+      const phoneNumber = "+8801856713852"; // Replace with the desired WhatsApp phone number (including country code)
       const message = `I'm interested in hiring for the service: ${service.name}`;
 
       // Debugging the message

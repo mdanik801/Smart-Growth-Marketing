@@ -1,43 +1,42 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../server/firebase";
 
 export default function Project() {
-   const [activeIndex, setActiveIndex] = useState(0);
+   const [activeIndex, setActiveIndex] = useState(0); // Active card index
+   const [projects, setProjects] = useState([]); // Projects data from Firebase
    const cardListRef = useRef(null);
 
-   const cards = [
-      {
-         id: 1,
-         title: "Card 1",
-         description: "This is the description for card 1.",
-         image: "https://via.placeholder.com/600x400?text=Image+1",
-      },
-      {
-         id: 2,
-         title: "Card 2",
-         description: "This is the description for card 2.",
-         image: "https://via.placeholder.com/600x400?text=Image+2",
-      },
-      {
-         id: 3,
-         title: "Card 3",
-         description: "This is the description for card 3.",
-         image: "https://via.placeholder.com/600x400?text=Image+3",
-      },
-      {
-         id: 4,
-         title: "Card 4",
-         description: "This is the description for card 4.",
-         image: "https://via.placeholder.com/600x400?text=Image+4",
-      },
-   ];
+   // Fetch data from Firestore
+   const fetchProjects = async () => {
+      const querySnapshot = await getDocs(collection(db, "projects"));
+      const projectData = querySnapshot.docs.map((doc) => ({
+         id: doc.id,
+         name: doc.data().name, // Ensure the name field is fetched
+         description: doc.data().description,
+         imageUrl: doc.data().imageUrl || "", // Handle cases where imageUrl might be empty
+      }));
+      setProjects(projectData); // Set the fetched data to state
+   };
+
+   // Fetch data when the component is mounted
+   useEffect(() => {
+      fetchProjects();
+   }, []);
 
    // Handle scroll to change active card
    const handleScroll = () => {
       const scrollTop = cardListRef.current.scrollTop;
       const cardHeight = cardListRef.current.children[0].offsetHeight;
+
+      // Calculate active index based on scroll position
       const newIndex = Math.floor(scrollTop / cardHeight);
       setActiveIndex(newIndex);
    };
+
+   if (projects.length === 0) {
+      return <div>Loading...</div>; // Show a loading message while data is being fetched
+   }
 
    return (
       <div className="pt-16 p-2 flex flex-col w-full items-center">
@@ -45,31 +44,43 @@ export default function Project() {
             Project
          </h1>
          <div className="w-[25vh] h-[0.6vh] my-4 bg-red-600 animate-pulse"></div>
-         <div className="flex items-center justify-center h-auto w-full">
-            <div className="flex flex-col lg:flex-row w-full max-w-6xl">
-               {/* Left Content */}
+         <div className="flex items-center justify-center h-auto w-full rounded-lg border border-red-600">
+            <div className="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden">
+               {/* Image Section for Mobile */}
+               <div className="lg:w-[20%] w-full h-[30vh] overflow-hidden lg:hidden flex items-start justify-center  rounded-t-lg bg-blue-100">
+                  <img
+                     src={projects[activeIndex].imageUrl} // Use the image URL from Firestore
+                     alt={`Project ${activeIndex + 1}`}
+                     className="rounded-t-lg shadow-lg w-full sm:w-3/4 h-auto transition-all duration-300"
+                  />
+               </div>
+
+               {/* Card List */}
                <div
                   ref={cardListRef}
-                  className="w-full lg:w-1/2 overflow-y-auto pr-4 border border-red-600 rounded-lg scrollbar-thumb-red-600 scrollbar-thin mb-4 lg:mb-0"
+                  className="lg:w-[80%] w-full h-[60vh] overflow-y-auto scrollbar-thumb-red-600 scrollbar-thin lg:mb-0"
                   onScroll={handleScroll}>
-                  {cards.map((card, index) => (
+                  {projects.map((project, index) => (
                      <div
-                        key={card.id}
-                        className={`p-4 mb-4 border-y h-full border-red-600 cursor-pointer hover:bg-gray-100 ${
+                        key={project.id}
+                        className={`p-4 rounded-b-lg border-y h-[100%] cursor-pointer flex flex-col justify-center hover:bg-gray-100 ${
                            index === activeIndex ? "bg-blue-100" : ""
                         }`}>
-                        <h2 className="text-lg font-bold">{card.title}</h2>
-                        <p className="text-gray-600">{card.description}</p>
+                        <h2 className="text-lg font-bold"> {project.name}</h2>{" "}
+                        {/* Display project name */}
+                        <p className="text-gray-600 text-justify lg:text-[1rem] text-[0.9rem]">
+                           {project.description}
+                        </p>
                      </div>
                   ))}
                </div>
 
-               {/* Right Image */}
-               <div className="w-full lg:w-1/2 flex items-center justify-center">
+               {/* Image Section for Desktop */}
+               <div className="w-[20%] h-[60vh] hidden lg:flex lg:w-1/2 items-center justify-center p-2 bg-blue-100">
                   <img
-                     src={cards[activeIndex].image}
-                     alt={cards[activeIndex].title}
-                     className="rounded-lg shadow-lg w-full sm:w-3/4 lg:w-3/4 h-auto transition-all duration-500"
+                     src={projects[activeIndex].imageUrl} // Use the image URL from Firestore
+                     alt={`Project ${activeIndex + 1}`}
+                     className="rounded-lg shadow-lg w-full h-auto transition-all duration-500"
                   />
                </div>
             </div>

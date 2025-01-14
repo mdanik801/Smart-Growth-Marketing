@@ -66,7 +66,7 @@ export default function Contact() {
          </h1>
          <div className="w-[25vh] h-[0.6vh] my-4 bg-red-600 animate-pulse"></div>
 
-         <div className="w-full flex flex-col lg:flex-row">
+         <div className="w-full flex flex-col lg:flex-row bg-slate-300 rounded-lg py-8">
             <div className="lg:w-[40%] p-6">
                <h2 className="text-xl font-semibold text-slate-700 mb-6">Connect with Us</h2>
                <ul className="space-y-4">
@@ -75,7 +75,7 @@ export default function Contact() {
                         <div
                            target="_blank"
                            rel="noopener noreferrer"
-                           className="hover:text-blue-900 flex   text-slate-700 text-shadow-sm font-bold font-Inter">
+                           className="hover:text-blue-900 flex   text-slate-700  font-bold font-Inter">
                            <img
                               src={link.iconUrl}
                               alt="social-icon"
@@ -115,7 +115,7 @@ export default function Contact() {
                            type="text"
                            id="name"
                            {...register("name", { required: "Name is required" })}
-                           className="w-full p-3  bg-slate-200 shadow-lg shadow-slate-400 rounded-md  focus:outline-none focus:ring-2 focus:ring-red-600 hover:shadow-none duration-300"
+                           className="w-full p-3  bg-slate-200 shadow-lg border-b border-red-600  shadow-slate-400 rounded-md  focus:outline-none focus:ring-2 focus:ring-red-600 hover:shadow-none duration-300"
                         />
                         {errors.name && (
                            <p className="text-red-600 text-sm">{errors.name.message}</p>
@@ -138,7 +138,7 @@ export default function Contact() {
                                  message: "Please enter a valid email",
                               },
                            })}
-                           className="w-full p-3  bg-slate-200 shadow-lg shadow-slate-400 rounded-md  focus:outline-none focus:ring-2 focus:ring-red-600 hover:shadow-none duration-300"
+                           className="w-full p-3  bg-slate-200 shadow-lg shadow-slate-400 border-b border-red-600  rounded-md  focus:outline-none focus:ring-2 focus:ring-red-600 hover:shadow-none duration-300"
                         />
                         {errors.email && (
                            <p className="text-red-600 text-sm">{errors.email.message}</p>
@@ -154,7 +154,7 @@ export default function Contact() {
                         <textarea
                            id="message"
                            {...register("message", { required: "Message is required" })}
-                           className="w-full p-3  bg-slate-200 shadow-lg shadow-slate-400 rounded-md  focus:outline-none focus:ring-2 focus:ring-red-600 hover:shadow-none duration-300"
+                           className="w-full p-3 min-h-[20vh] max-h-  bg-slate-200 shadow-lg shadow-slate-400 border-b border-red-600 rounded-md  focus:outline-none focus:ring-2 focus:ring-red-600 hover:shadow-none duration-300"
                            rows="5"
                         />
                         {errors.message && (
@@ -166,7 +166,7 @@ export default function Contact() {
                         <button
                            type="submit"
                            className="font-Inter font-semibold text-shadow-md text-white bg-red-600 hover:bg-red-700 border border-red-600 w-[70%] h-[2.4rem] my-1 rounded-full shadow shadow-black hover:shadow-none duration-300">
-                           Submit
+                           Send Massage
                         </button>
                      </div>
                   </form>

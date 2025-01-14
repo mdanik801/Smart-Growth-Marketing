@@ -26,7 +26,7 @@ export default function Achievements() {
             Achievements
          </h1>
          <div className="w-[25vh] h-[0.6vh] mb-4 animate-pulse bg-red-600 "></div>
-         <div className="flex flex-wrap space-x-2 w-full justify-center">
+         <div className="flex flex-wrap space-x-2 w-full justify-center  ">
             {cardItems.length > 0 ? (
                cardItems.map((item) => (
                   <div

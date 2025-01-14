@@ -30,7 +30,7 @@ export default function Team() {
          </h1>
          <div className="w-[25vh] h-[0.6vh] mb-4 animate-pulse bg-red-600"></div>
 
-         <div className="w-full h-auto p-4 flex flex-wrap justify-center items-center">
+         <div className="w-full h-auto p-4 flex flex-wrap justify-center items-center ">
             {/* Render the fetched team members */}
             {teamMembers.length === 0 ? (
                <div>Loading...</div>

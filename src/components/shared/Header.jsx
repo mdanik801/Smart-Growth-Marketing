@@ -37,8 +37,8 @@ export default function Header() {
    return (
       <>
          {/* Banner Section */}
-         <div className="pt-16 w-full p-4">
-            <div className="w-full lg:h-[80vh] m-2 rounded lg:flex flex-wrap">
+         <div className="pt-16 w-full p-4 bg-slate-300 rounded-lg py-8">
+            <div className="w-full lg:h-[80vh] m-2  lg:flex flex-wrap ">
                {/* Details section */}
                <div className="h-full lg:w-7/12 lg:p-10 flex flex-col justify-center">
                   <h1 className="text-[1.5rem] lg:text-[2.2rem] text-slate-700 text-shadow-md font-extrabold font-Inter">

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Header from "./shared/Header";
-import Achievements from "./shared/Achievements";
-import Services from "./Services";
-import Project from "./Project";
-import Contact from "./Contact";
-import Team from "./shared/Team";
+import Header from "../shared/Header";
+import Achievements from "../shared/Achievements";
+import Project from "../Project";
+import Contact from "../Contact";
+import Team from "../shared/Team";
+import Footer from "../shared/Footer";
 
-import Logo from "../assets/digital growth marketingpng.png";
-import Footer from "./shared/Footer";
 import { Link } from "react-router";
-
+import Logo from "../../assets/digital growth marketingpng.png";
+import ServicesCard from "./ServicesCard";
 export default function Home() {
    const [showIntro, setShowIntro] = useState(true);
    const [introPhase, setIntroPhase] = useState("enter"); // Tracks animation phase: "enter", "exit", or "none"
@@ -25,7 +24,7 @@ export default function Home() {
    }, []);
 
    return (
-      <div className="h-screen overflow-y-scroll scrollbar scrollbar-thumb-red-500 scrollbar-track-white">
+      <div className="h-screen">
          {showIntro ? (
             // Intro Section with Enter, Blur, Drop, and Exit Animation
             <div
@@ -50,7 +49,7 @@ export default function Home() {
                <Achievements />
                <div className=" flex flex-col items-center">
                   {" "}
-                  <Services />{" "}
+                  <ServicesCard />
                   <Link
                      to="/services"
                      className=" bg-red-600 w-[40%] text-center text-white hover:bg-slate-600 hover:text-red-600 duration-200 rounded-2xl shadow-md shadow-slate-500 hover:shadow-none  p-2 font-inter  font-bold text-shadow-">

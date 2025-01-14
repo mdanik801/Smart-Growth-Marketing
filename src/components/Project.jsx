@@ -66,7 +66,7 @@ export default function Project() {
                         className={`p-4 rounded-b-lg border-y h-[100%] cursor-pointer flex flex-col justify-center bg-gray-100 duration-300 ${
                            index === activeIndex ? "" : ""
                         }`}>
-                        <h2 className="text-xl text-shadow-md font-inter  font-bold text-red-600">
+                        <h2 className="text-2xl text-shadow-md font-inter animate-bounce font-bold text-red-600">
                            {" "}
                            {project.name}
                         </h2>{" "}

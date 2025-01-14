@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
-
 import Logo from "../../assets/digital growth marketingpng2.png";
 
 export default function Navbar() {
    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
    const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-
-   let lastScrollY = window.scrollY;
+   const lastScrollY = useRef(0);
 
    useEffect(() => {
       const handleScroll = () => {
-         if (window.scrollY > lastScrollY) {
+         if (window.scrollY > lastScrollY.current) {
             // Scrolling down
             setIsNavbarVisible(false);
          } else {
             // Scrolling up
             setIsNavbarVisible(true);
          }
-         lastScrollY = window.scrollY;
+         lastScrollY.current = window.scrollY;
       };
 
       window.addEventListener("scroll", handleScroll);
@@ -41,7 +39,7 @@ export default function Navbar() {
       <>
          {/* Navbar */}
          <nav
-            className={`bg-slate-200  fixed w-full transition-transform duration-300 ${
+            className={`bg-slate-200 fixed w-full transition-transform duration-300 ${
                isNavbarVisible ? "translate-y-0" : "-translate-y-full"
             }`}
             style={{ zIndex: 1000 }} // Ensure navbar is above other content
@@ -51,7 +49,7 @@ export default function Navbar() {
                   {/* Logo */}
                   <div className="flex-shrink-0">
                      <Link to="/">
-                        <img className="w-[12rem] " src={Logo} alt="Logo" />{" "}
+                        <img className="w-[12rem]" src={Logo} alt="Logo" />
                      </Link>
                   </div>
 
@@ -61,7 +59,7 @@ export default function Navbar() {
                         <Link
                            key={item.name}
                            to={item.path}
-                           className=" text-red-600 hover:text-slate-700 px-3 py-2 rounded-md text-lg font-bold font-Inter  hover:text-shadow-sm duration-300">
+                           className="text-red-600 hover:text-slate-700 px-3 py-2 rounded-md text-lg font-bold font-Inter hover:text-shadow-sm duration-300">
                            {item.name}
                         </Link>
                      ))}

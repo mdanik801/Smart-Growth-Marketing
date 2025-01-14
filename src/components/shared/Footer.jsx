@@ -142,7 +142,12 @@ export default function Footer() {
                   {/* Social Links */}
                   <div className="flex space-x-4 mb-4 lg:mb-0">
                      {socialLinks.map((link) => (
-                        <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer">
+                        <a
+                           key={link.id}
+                           href={link.url}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className=" animate-bounce hover:animate-none duration-200">
                            <img src={link.icon} alt={link.platform} className="w-6 h-6" />
                         </a>
                      ))}

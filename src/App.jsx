@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import Home from "./components/Home";
+
 import Services from "./components/Services";
 import Project from "./components/Project";
 import Contact from "./components/Contact";
@@ -9,6 +9,7 @@ import Admin from "./components/admin/Admin";
 import Updatepage from "./components/admin/auth/Updatepage";
 import Authentication from "./components/admin/auth/Authentication";
 import ServiceDetails from "./components/shared/ServiceDetails";
+import Home from "./components/home/Home";
 
 function App() {
    return (

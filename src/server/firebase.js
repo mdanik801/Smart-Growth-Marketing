@@ -1,10 +1,10 @@
-// firebaseConfig.js
+// Import necessary Firebase modules
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, doc, setDoc, collection } from "firebase/firestore"; // Import Firestore functions
+import { getFirestore, doc, setDoc, collection, getDoc, addDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-// Your Firebase configuration
+// Firebase project configuration
 const firebaseConfig = {
    apiKey: "AIzaSyDubZjrcsliSi1OAanf0xsHWKqIJjdIUy8",
    authDomain: "company-website-5864b.firebaseapp.com",
@@ -14,15 +14,16 @@ const firebaseConfig = {
    appId: "1:997795295705:web:d3c2a1793a3aeb39b669c8",
 };
 
-// Initialize Firebase
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
-// Export Firebase services
-export const auth = getAuth(app); // Authentication service
-export const db = getFirestore(app); // Firestore service
-export const storage = getStorage(app); // Cloud Storage service
+// Initialize individual Firebase services
+export const auth = getAuth(app); // Authentication
+export const db = getFirestore(app); // Firestore database
+export const storage = getStorage(app); // Cloud storage
 
-// Export Firestore functions you need
-export { doc, setDoc, collection }; // Export doc, setDoc, collection from Firestore
+// Re-export commonly used Firestore functions for convenience
+export { doc, setDoc, getDoc, addDoc, collection };
 
-export default app; // Optional export of the app instance
+// Optional: Export the initialized Firebase app (if needed elsewhere)
+export default app;

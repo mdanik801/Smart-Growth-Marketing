@@ -44,10 +44,10 @@ export default function Project() {
             Project
          </h1>
          <div className="w-[25vh] h-[0.6vh] my-4 bg-red-600 animate-pulse"></div>
-         <div className="flex items-center justify-center h-auto w-full rounded-lg border border-red-600">
+         <div className=" w-11/12 flex items-center justify-center h-auto  rounded-lg border border-red-600 shadow-md shadow-gray-500 ">
             <div className="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden">
                {/* Image Section for Mobile */}
-               <div className="lg:w-[20%] w-full h-[30vh] overflow-hidden lg:hidden flex items-start justify-center  rounded-t-lg bg-blue-100">
+               <div className="lg:w-[20%] w-full h-[30vh] overflow-hidden lg:hidden flex items-start justify-center  rounded-t-lg bg-gray-100">
                   <img
                      src={projects[activeIndex].imageUrl} // Use the image URL from Firestore
                      alt={`Project ${activeIndex + 1}`}
@@ -63,10 +63,13 @@ export default function Project() {
                   {projects.map((project, index) => (
                      <div
                         key={project.id}
-                        className={`p-4 rounded-b-lg border-y h-[100%] cursor-pointer flex flex-col justify-center hover:bg-gray-100 ${
-                           index === activeIndex ? "bg-blue-100" : ""
+                        className={`p-4 rounded-b-lg border-y h-[100%] cursor-pointer flex flex-col justify-center bg-gray-100 duration-300 ${
+                           index === activeIndex ? "" : ""
                         }`}>
-                        <h2 className="text-lg font-bold"> {project.name}</h2>{" "}
+                        <h2 className="text-xl text-shadow-md font-inter  font-bold text-red-600">
+                           {" "}
+                           {project.name}
+                        </h2>{" "}
                         {/* Display project name */}
                         <p className="text-gray-600 text-justify lg:text-[1rem] text-[0.9rem]">
                            {project.description}
@@ -76,7 +79,7 @@ export default function Project() {
                </div>
 
                {/* Image Section for Desktop */}
-               <div className="w-[20%] h-[60vh] hidden lg:flex lg:w-1/2 items-center justify-center p-2 bg-blue-100">
+               <div className="w-[20%] h-[60vh] hidden lg:flex lg:w-1/2 items-center justify-center p-2 bg-gray-100">
                   <img
                      src={projects[activeIndex].imageUrl} // Use the image URL from Firestore
                      alt={`Project ${activeIndex + 1}`}

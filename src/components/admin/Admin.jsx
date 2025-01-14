@@ -9,6 +9,8 @@ import AchievementUpdate from "./pages/AchivementUpdate";
 import ServicesUpdate from "./pages/ServicesUpdate";
 import TeamUpdate from "./pages/TeamUpdate";
 import ProjectUpdate from "./pages/ProjectUpdate";
+import ContactpageUpdate from "./pages/ContactpageUpdate";
+import FooterUpdate from "./pages/FooterUpdate";
 
 export default function Admin() {
    const [showProfile, setShowProfile] = useState(false); // State to toggle the profile visibility
@@ -37,6 +39,10 @@ export default function Admin() {
             return <TeamUpdate />;
          case "project":
             return <ProjectUpdate />;
+         case "contact":
+            return <ContactpageUpdate />;
+         case "footer":
+            return <FooterUpdate />;
          default:
             return <HeaderUpdate />;
       }
@@ -73,16 +79,28 @@ export default function Admin() {
                   className="cursor-pointer py-2 hover:bg-gray-700">
                   Project Update
                </li>
+               <li
+                  onClick={() => setActivePage("contact")}
+                  className="cursor-pointer py-2 hover:bg-gray-700">
+                  Contact Update
+               </li>
+               <li
+                  onClick={() => setActivePage("footer")}
+                  className="cursor-pointer py-2 hover:bg-gray-700">
+                  Footer Update
+               </li>
             </ul>
          </div>
 
          {/* Main content area */}
          <div className="ml-64 w-full">
-            <h1 className="text-[1.5rem] lg:text-[2.2rem] text-slate-700 text-shadow-md font-extrabold font-Inter">
-               Admin Page
-            </h1>
-            <div className="w-32 h-1 animate-pulse bg-red-600 mb-4"></div>
-
+            <div className=" flex flex-col justify-center items-center">
+               {" "}
+               <h1 className="text-[1.5rem] lg:text-[2.2rem] text-slate-700 text-shadow-md font-extrabold font-Inter">
+                  Admin Page
+               </h1>
+               <div className="w-32 h-1 animate-pulse bg-red-600 mb-4"></div>
+            </div>
             {/* Authentication Component - Show if no user is logged in */}
             {!user ? (
                <div className="flex justify-center items-center w-full text-white ">

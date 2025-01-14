@@ -65,7 +65,7 @@ export default function HeaderUpdate() {
    };
 
    return (
-      <div className="m-4 p-4 w-full flex flex-col items-center">
+      <div className="m-4 p-4 w-full flex flex-col items-center ">
          <h1 className="text-2xl lg:text-3xl text-slate-700 font-bold mb-4">Header Update</h1>
          <div className="w-32 h-1 bg-red-600 mb-4"></div>
          <h1 className="text-3xl font-bold mb-6">Update Description</h1>
@@ -84,13 +84,13 @@ export default function HeaderUpdate() {
                      {...register("description", {
                         required: "Description is required",
                         maxLength: {
-                           value: 600,
+                           value: 800,
                            message: "Description cannot exceed 600 characters",
                         },
                      })}
                      placeholder="Update description"
-                     className="w-full p-2 border rounded-md focus:ring-red-500 focus:border-red-500"
-                     maxLength={600} // Set maxLength for the textarea
+                     className="w-full p-2 border rounded-md focus:ring-red-500 min-h-[50vh] focus:border-red-500"
+                     maxLength={800} // Set maxLength for the textarea
                   />
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                      Maximum 600 characters

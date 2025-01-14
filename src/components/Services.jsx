@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { db } from "../server/firebase";
 
 export default function Services() {
@@ -72,7 +72,7 @@ export default function Services() {
                services.map((service) => (
                   <div
                      key={service.id}
-                     className="lg:w-[24%] bg-white h-[70vh] m-2 p-3 border border-red-600 rounded-lg shadow-md shadow-black flex flex-col items-center">
+                     className="lg:w-[20%] bg-white h-[65vh] m-2 p-3 border border-red-600 rounded-lg shadow-md shadow-black flex flex-col items-center">
                      <div className="h-[20%]">
                         <img
                            className="w-[5rem] h-[5rem] object-cover rounded-full"

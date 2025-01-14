@@ -8,6 +8,7 @@ import Team from "./shared/Team";
 
 import Logo from "../assets/digital growth marketingpng.png";
 import Footer from "./shared/Footer";
+import { Link } from "react-router";
 
 export default function Home() {
    const [showIntro, setShowIntro] = useState(true);
@@ -47,7 +48,15 @@ export default function Home() {
             <>
                <Header />
                <Achievements />
-               <Services />
+               <div className=" flex flex-col items-center">
+                  {" "}
+                  <Services />{" "}
+                  <Link
+                     to="/services"
+                     className=" bg-red-600 w-[40%] text-center text-white hover:bg-slate-600 hover:text-red-600 duration-200 rounded-2xl shadow-md shadow-slate-500 hover:shadow-none  p-2 font-inter  font-bold text-shadow-">
+                     See All Services &#8594;
+                  </Link>
+               </div>
                <Team />
                <Project />
                <Contact />

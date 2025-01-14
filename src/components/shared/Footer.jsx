@@ -91,18 +91,12 @@ export default function Footer() {
                         <li>Name: Md Aulad Hossain Anik</li>
                         <li>
                            Email:{" "}
-                           <a
-                              href="mailto:mdanikpro801@gmail.com"
-                              target="_blank"
-                              className="text-blue-400">
+                           <a href="mailto:mdanikpro801@gmail.com" target="_blank" className="">
                               mdanikpro801@gmail.com
                            </a>
                         </li>
                         Whatsapp : {/* Replace with actual email */}
-                        <a
-                           href="https://wa.me/+8801856713852"
-                           target="_blank"
-                           className="text-blue-400">
+                        <a href="https://wa.me/+8801856713852" target="_blank" className="">
                            +8801856713852
                         </a>{" "}
                         {/* Replace with actual phone */}

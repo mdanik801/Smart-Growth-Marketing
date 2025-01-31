@@ -11,6 +11,7 @@ import TeamUpdate from "./pages/TeamUpdate";
 import ProjectUpdate from "./pages/ProjectUpdate";
 import ContactpageUpdate from "./pages/ContactpageUpdate";
 import FooterUpdate from "./pages/FooterUpdate";
+import AboutUpdate from "./pages/AboutUpdate";
 
 export default function Admin() {
    const [showProfile, setShowProfile] = useState(false); // State to toggle the profile visibility
@@ -39,6 +40,8 @@ export default function Admin() {
             return <TeamUpdate />;
          case "project":
             return <ProjectUpdate />;
+         case "about":
+            return <AboutUpdate />;
          case "contact":
             return <ContactpageUpdate />;
          case "footer":
@@ -78,6 +81,11 @@ export default function Admin() {
                   onClick={() => setActivePage("project")}
                   className="cursor-pointer py-2 hover:bg-gray-700">
                   Project Update
+               </li>
+               <li
+                  onClick={() => setActivePage("about")}
+                  className="cursor-pointer py-2 hover:bg-gray-700">
+                  About Update
                </li>
                <li
                   onClick={() => setActivePage("contact")}

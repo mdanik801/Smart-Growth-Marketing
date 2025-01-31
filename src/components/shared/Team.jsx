@@ -26,7 +26,7 @@ export default function Team() {
    return (
       <div className="pt-16 p-2 flex flex-col items-center">
          <h1 className="text-[1.5rem] lg:text-[2rem] text-slate-700 text-shadow-md font-extrabold font-Inter">
-            Team Member's
+            Our Team Member's
          </h1>
          <div className="w-[25vh] h-[0.6vh] mb-4 animate-pulse bg-red-600"></div>
 
@@ -43,7 +43,7 @@ export default function Team() {
                         <img src={member.img} alt="" className="h-full w-full" />
                      </div>
                      <div className="w-full m-1 pt-6 flex flex-col items-center justify-center">
-                        <h1 className="lg:text-[1.1rem] text-[1.5rem] font-semibold text-slate-700">
+                        <h1 className="lg:text-[1.1rem] text-[1.5rem] font-bold text-slate-700">
                            {member.name}
                         </h1>
                         <h3 className="font-roboto font-semibold lg:text-[0.7rem] text-[0.6rem] text-red-800">
